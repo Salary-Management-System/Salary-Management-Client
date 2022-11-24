@@ -1,0 +1,26 @@
+<div class="container-login">
+    <form id="login-form" method="get">
+        <header>
+            <span>Salary Manangement</span>
+            <div class="logo">
+                <img src="https://res.cloudinary.com/halshop/image/upload/v1650820345/vldvnzhkqelxjv28lolo.jpg" alt="">
+            </div>
+        </header>
+        <input type="text" name="username" placeholder="Username or Email" [(ngModel)]="user.username" id="username">
+        <div class="pwd-row">
+            <input [type]='isShowPwd ? "text" : "password"' name="password" placeholder="Password" [(ngModel)]="user.password" id="password">
+            <div class="show-pwd">
+                <fa-icon 
+                    id="iconEye"
+                    (click)="onShowPassword()"
+                    [icon]="iconEye"
+                    >
+                </fa-icon>
+            </div>
+        </div>
+        <button class="btnLogin" type="submit" (click)="login()">{{contentBtn}}<fa-icon id="iconProcess" [spin]="true" style="--fa-animation-duration: 500ms" [icon]="iconProcess"></fa-icon></button>
+        <caption>
+            Forgot <a href="">Username/Password</a>
+        </caption>
+    </form>
+</div>

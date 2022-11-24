@@ -1,1 +1,111 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;1,300&display=swap');
+
+
+:root {
+    --KHOAI-MON : #8890b5
+}
+html {
+    box-sizing : border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+}
+
+app-root {
+    display: block;
+    height: 100%;
+}
+ 
+/* .btn {
+    background-color: transparent;
+    border: none;
+} */
+
+.circled {
+    border-radius: 80%;
+}
+
+input[type="search"] {
+    padding: 5px 13px;
+    border-radius: 1rem;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: none;
+    outline-color: white;
+    color: white;
+    transition-duration: .5s;
+    font-weight: 600;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+    display: none;
+}
+
+input[type="search"]::placeholder {
+    color: white;
+    font-style: italic;
+}
+
+.username {
+    font-weight: 900;
+    font-size: 25px;
+}
+
+.position {
+    font-size: 15px;
+    font-style: italic;
+}
+
+p {
+    margin: unset;
+    line-height: 1.5;
+}
+
+h1, h4 {
+    font-weight: bold !important;
+}
+
+label {
+    font-weight: 600;
+}
+
+.btn-khoai {
+    background-color: transparent;
+    color: var(--KHOAI-MON);
+}
+
+.btn-khoai:hover {
+    background-color: var(--KHOAI-MON);
+    color: white;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid;
+    padding: 5px;
+    display: flex;
+    place-content: center center;
+}
+
+.form-search {
+    position: relative;
+}
+
+.btn-search {
+    position: absolute;
+    right: 5px;
+    top: 0;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    cursor: pointer;
+    color: white;
+}

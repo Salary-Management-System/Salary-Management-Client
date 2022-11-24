@@ -1,0 +1,37 @@
+<nav id="navbar">
+    <button #expandBtn class="menu-btn" (click)="onExpandSidebar()">
+        <div class="menu-icon"></div>
+    </button>
+    <form id="form-search" class="form-search" action="#" method="GET">
+        <input type="search" class="search-input" placeholder="Search here..."/>
+        <button class="btn btn-search">
+            <fa-icon [icon]="glassSearch"></fa-icon>
+        </button>
+    </form>
+    <ul>
+        <li>
+            <button class="notification circled btn-navbar-item"><fa-icon [icon]="notificationIcon"></fa-icon></button>
+        </li>
+        <li>
+            <button class="message circled btn-navbar-item"><fa-icon [icon]="messageIcon"></fa-icon></button>
+        <li class="item-img"
+            (mouseover)="isHoverForShowMenu = true"
+            (mouseout)="isHoverForShowMenu = false"
+        >
+            <div class="profile-user-img btn circled">
+                <!-- <img src="https://res.cloudinary.com/halshop/image/upload/v1650820345/vldvnzhkqelxjv28lolo.jpg" alt="Profile Picture"> -->
+                <fa-icon [icon]="userIcon"></fa-icon>
+            </div>
+        </li>
+        <!-- <li class="item-basic-info">
+            <p class="username">Hoang An</p>
+            <p class="position">Manager</p>
+        </li> -->
+    </ul>
+</nav>
+<app-dropdown-user
+    [style.display]="isHoverForShowMenu ? 'block' : 'none'"
+    (mouseover)="onHoverHandler()"
+    (mouseout)="onHoverHandler()"
+>
+</app-dropdown-user>

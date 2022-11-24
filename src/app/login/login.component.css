@@ -1,0 +1,111 @@
+.container-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--KHOAI-MON);
+    height: 100%;
+    font-size: 16px;
+}
+
+#login-form {
+    width: 25%;
+    height: auto;
+    padding: 10px 15px;
+    text-align: center;
+    display: grid;
+    /* grid-template-rows: 30px, 50px, repeat(3, 1fr) auto; */
+    row-gap: 20px;
+}
+
+#login-form header > span {
+    margin: 0;
+    font-size: 50px;
+    font-weight: bolder;
+    text-transform: uppercase;
+}
+
+#login-form header > .logo {
+    margin-top: 15px;
+}
+
+#login-form input {
+    outline: none;
+    border: none;
+    border-bottom: 2px solid var(--KHOAI-MON);
+    padding: 15px 5px;
+    width: 100%;
+}
+
+#login-form input::placeholder {
+    color: var(--KHOAI-MON);
+}
+
+#login-form > button {
+    background-color: var(--KHOAI-MON);
+    color: white;
+    width: 100%;
+    border-radius: .5rem;
+    padding: .5rem 0;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: .5s;
+}
+
+#login-form > button:hover {
+    background-color: white;
+    color: var(--KHOAI-MON);
+    border: 2px dashed var(--KHOAI-MON);
+}
+
+#login-form > caption {
+    margin-top: 20px;
+    display: block;
+    font-weight: 600;
+}
+
+#login-form caption > a {
+    text-decoration: none;
+    color: var(--KHOAI-MON);
+    filter: opacity(80%);
+}
+
+#login-form caption > a:hover {
+    text-decoration: underline;
+}
+
+#login-form .logo > img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 80%;
+}
+
+.btnLogin {
+    display: flex;
+    place-content: center center;
+}
+
+#iconProcess {
+    display: none;
+}
+
+@keyframes rotateInfinite {
+    to {
+        transform: rotate(180deg);
+    }
+}
+
+.pwd-row {
+    position: relative;
+}
+
+.show-pwd {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    cursor: pointer;
+    display: grid;
+    place-content: center center;
+    height: 100%;
+    width: 30px;
+}

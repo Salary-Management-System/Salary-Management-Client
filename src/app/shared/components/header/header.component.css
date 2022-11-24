@@ -1,0 +1,142 @@
+#navbar {
+    background-color: var(--KHOAI-MON);
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 0 0 0 1rem;
+    position: relative;
+}
+
+#navbar ul {
+    list-style-type: none;
+    padding: 5px;
+    margin-block: 0;
+    display: flex;
+    align-items: center;
+}
+
+#navbar ul li {
+    margin: 0 5px;
+}
+
+#navbar ul li:nth-child(3) {
+    margin-right: 5px;
+}
+
+#navbar ul li:nth-child(4) {
+    margin-left: 5px;
+}
+
+app-dropdown-user {
+    display: none;
+    animation: showInfoMenu 250ms ease-in-out forwards;
+    position: absolute;
+    right: 10px;
+    padding-top: 20px;
+    top: 50px;
+    z-index: 2;
+}
+
+
+@keyframes showInfoMenu {
+    0%, 100% {
+        top: 60px;
+    }
+    50% {
+        top: 50px;
+    }
+}
+
+
+/* .profile-user-img > img,{
+    min-width: 45px;
+    height: auto;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 80%;
+} */
+
+.profile-user-img {
+    display: grid;
+    place-content: center center;
+    background-color: rgb(240, 240, 240);
+    color: black;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    transition-duration: 250ms;
+    border: none;
+}
+
+.profile-user-img > fa-icon {
+    transition-duration: 250ms;
+}
+
+
+.btn-navbar-item {
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    transition-duration: 250ms;
+    border: none;
+}
+
+:is(.btn-navbar-item:hover, .btn-navbar-item:focus-within) {
+    background-color: var(--KHOAI-MON);
+    color: rgb(240, 240, 240);
+    border: none;
+}
+
+.profile-user-img:hover > fa-icon {
+    transform: translateY(-1px) scale(1.1);
+}
+
+.menu-btn {
+    background-color: transparent;
+    border: none;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.menu-icon,
+.menu-icon::before,
+.menu-icon::after {
+    background-color: white;
+    width: 30px;
+    height: 4px;
+    border-radius: 5px;
+    position: absolute;
+    transition: all .5s;
+}
+
+.menu-icon::before,
+.menu-icon::after {
+    content: '';
+}
+
+.menu-icon::before {
+    transform: translate(-15px,-10px);
+}
+
+.menu-icon::after {
+    transform: translate(-15px, 10px);
+}
+
+.menu-icon.expand {
+    background-color: transparent;
+}
+
+.menu-icon.expand::before {
+    transform: translateX(-15px) rotate(45deg);
+}
+
+.menu-icon.expand::after {
+    transform: translateX(-15px) rotate(-45deg);
+}

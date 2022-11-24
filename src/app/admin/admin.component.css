@@ -1,0 +1,28 @@
+main {
+    display: grid;
+    grid-auto-rows: 75px calc(100vh - 75px);
+    grid-template-areas:
+    "sidebar navbar"
+    "sidebar container";
+    height: 100vh;
+    width: 100vw;
+}
+
+app-header {
+    grid-area: navbar;
+}
+
+app-sidebar {
+    grid-area: sidebar;
+}
+
+app-login {
+    display: block;
+    height: 100%;
+}
+
+#container {
+    grid-area: container;
+    padding: 0;
+    margin: 0;
+}

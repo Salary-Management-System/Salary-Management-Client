@@ -1,0 +1,15 @@
+<div class="user-tag">
+    <div class="user-avatar">
+        <img class="avatar_img" src="user.img_url" alt="" *ngIf="user.img_url else userIcon">
+        <ng-template #userIcon>
+            <fa-icon class="avatar_img" [icon]="iconUser"></fa-icon>
+        </ng-template>
+    </div>
+    <div class="user-tag-content">
+        <header>{{user.employee ? user.employee.firstname + ' ' + user.employee.lastname : user.username}}</header>
+        <div class="last-msg">
+            <div class="msg-content">{{lastMessage.msg}}</div>
+            <p class="msg-content-date">{{lastMessage.created_at}}</p>
+        </div>
+    </div>
+</div>

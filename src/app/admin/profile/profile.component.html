@@ -1,0 +1,276 @@
+<div class="profile-container">
+    <div class="column-1">
+        <div class="avatar">
+            <!-- Avatar Picture -->
+            <div class="img-area">
+                <fa-icon [icon]="iconUser" size="6x" [styles]="{'color' : 'var(--KHOAI-MON)'}"></fa-icon>
+            </div>
+        </div>
+        <div class="basic-infor">
+            <div class="header-content">
+                <header>Basic Information</header>
+                <div class="line-header"></div>
+            </div>
+            <div class="row-content">
+                <header>Username</header>
+                <p>: {{user.username}}</p>
+            </div>
+            <div class="row-content">
+                <header>Created</header>
+                <p>: {{user.created_at ? user.created_at : '---'}}</p>
+            </div>
+            <div class="row-content row-em-id" *ngIf="employee">
+                <header style="line-height: 1.5;">Employee ID :</header>
+                <p class="employee_id_text">{{user.employee_id ? user.employee_id : '---'}}</p>
+                <button
+                    class="btn-copy"
+                    (click)="onCopyToClipboard(user.employee_id)"
+                    type="button"
+                    [style]="{ 'color' : displayTextInBtnCopy == 'Copy' ? 'black' : 'hsl(120, 100%, 40%)' }"
+                >{{displayTextInBtnCopy}}</button>
+            </div>
+        </div>
+        <div class="roles-infor">
+            <div class="header-content">
+                <header>Roles Of User</header>
+                <div class="line-header"></div>
+            </div>
+            <ul class="list-roles" *ngIf="user.roles">
+                <li *ngFor="let role of user.roles">{{role}}</li>
+            </ul>
+        </div>
+    </div>
+    <div class="column-2">
+        <div class="employee-information" *ngIf="employee; else emptyEm">
+            <h1>{{employee.firstname + ' ' + employee.lastname}}</h1>
+            <div class="location">
+                <fa-icon [icon]="geoIcon"></fa-icon>
+                <p>{{geo ? geo.city : ''}}</p>
+            </div>
+        </div>
+        <p class="position">Position name</p>
+        <ng-template #emptyEm>
+            <div class="employee-information">
+                <h1>{{user.username}}</h1>
+                <div class="location">
+                    <fa-icon [icon]="geoIcon"></fa-icon>
+                    <p>{{geo ? geo.city : ''}}</p>
+                </div>
+            </div>
+        </ng-template>
+        <div class="activity-container">
+            <nav class="sub-menu">
+                <form action="" #formEdit></form>
+                <ul>
+                    <li class="timeline" #subMenuItem (click)="onChangeCategory('timeline')">Timeline</li>
+                    <li class="about" #subMenuItem (click)="onChangeCategory('about')">About</li>
+                    <li class="message" #subMenuItem (click)="onChangeCategory('message')">Message</li>
+                    <li class="re-password" #subMenuItem (click)="onChangeCategory('re-password')">Recovery Password</li>
+                </ul>
+            </nav>
+            <div class="content">
+                <div #section id="about">
+                    <div *ngIf="user.employee; then emInformation else emptyInformation"></div>
+                    <ng-template #emInformation>
+                        <div class="em-information">
+                            <div class="em-infor em-basic">
+                                <header class="header-about">Employee Information</header>
+                                <ul>
+                                    <li>
+                                        <label for="fullname">Full Name</label>
+                                        <p id="fullname">{{user.employee.firstname + ' ' + user.employee.lastname}}</p>
+                                    </li>
+                                    <li>
+                                        <label for="gender">Gender</label>
+                                        <p id="gender">{{user.gender}}</p>
+                                    </li>
+                                    <li>
+                                        <label for="dob">Date Of Birth</label>
+                                        <p id="dob">{{user.dob}}</p>
+                                    </li>
+                                </ul>
+                                <span (click)="openModal(contentBasic)" class="edit-text">Edit</span>
+                                <ng-template #contentBasic let-modal>
+                                    <div class="modal-header">
+                                        <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+                                        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form>
+                                            <div class="mb-3">
+                                                <label for="firstname">Firstname</label>
+                                                <input class="form-control mb-3" type="text" id="firstname" [value]="user.employee.firstname">
+                                                <label for="lastname">Lastname</label>
+                                                <input class="form-control mb-3" type="text" id="lastname" [value]="user.employee.lastname">
+                                                <label for="gender">Gender</label>
+                                                <select class="form-control mb-3" id="gender">
+                                                    <option value="male">Male</option>
+                                                    <option value="female">Female</option>
+                                                    <option value="other">Other</option>
+                                                </select>
+                                                <label for="dateOfBirth">Date of birth</label>
+                                                <div class="input-group">
+                                                    <input
+                                                        id="dateOfBirth"
+                                                        class="form-control"
+                                                        placeholder="yyyy-mm-dd"
+                                                        name="dp"
+                                                        ngbDatepicker
+                                                        #dp="ngbDatepicker"
+                                                    />
+                                                    <button class="btn btn-khoai"(click)="dp.toggle()" type="button">
+                                                        <fa-icon [icon]="iconCalendar"></fa-icon>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+                                    </div>
+                                </ng-template>
+                            </div>
+                            <div class="em-infor em-contact">
+                                <header class="header-about">Contact Information</header>
+                                <ul>
+                                    <li>
+                                        <label for="email">Email</label>
+                                        <p id="email">
+                                            <!-- {{user.email}} -->
+                                            hoangan@gmail.com
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <label for="phone">Phone</label>
+                                        <p id="phone">
+                                            <!-- {{user.phone}} -->
+                                            0902931738
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <label for="address">Address</label>
+                                        <p id="address">
+                                            <!-- {{user.address}} -->
+                                            195 Nguyen Thai Son
+                                        </p>
+                                    </li>
+                                </ul>
+                                <span (click)="openModal(contentContact)" class="edit-text">Edit</span>
+                                <ng-template #contentContact let-modal>
+                                    <div class="modal-header">
+                                        <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+                                        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form>
+                                            <div class="mb-3">
+                                                <label for="email">Email</label>
+                                                <input class="form-control mb-3" type="email" id="email" [value]="user.username">
+                                                <label for="phone">Phone</label>
+                                                <input class="form-control mb-3" type="text" id="phone" [value]="user.employee.phone">
+                                                <label for="address">Address</label>
+                                                <input class="form-control mb-3" type="text" id="address" [value]="user.employee.address">
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+                                    </div>
+                                </ng-template>
+                            </div>
+                            <div class="em-infor em-work">
+                                <header class="header-about">Work Information</header>
+                                <ul>
+                                    <li>
+                                        <label for="job">Job</label>
+                                        <div id="job">
+                                            <p id="position">
+                                                <!-- {{user.position.position_name}} -->
+                                                Manager
+                                            </p>
+                                            <p id="level">
+                                                <!-- {{user.level.level_name}} -->
+                                                ---
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <label for="yoe">Year Of Experience</label>
+                                        <p id="yoe">
+                                            5
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <label for="payment_type">Payment Type</label>
+                                        <p id="payment_type">
+                                            Gross
+                                        </p>
+                                    </li>
+                                </ul>
+                                <span class="edit-text">Edit</span>
+                            </div>
+                        </div>
+                    </ng-template>
+                    <ng-template #emptyInformation>
+                        <p [style]="{ margin : '20px' }">User is not registered for employee</p>
+                    </ng-template>
+                </div>
+                <div #section id="timeline">
+                    <app-timeline [events]="events"></app-timeline>
+                </div>
+                <div #section id="message">
+                    <div class="message-container">
+                        <div class="list-user-column">
+                            <div class="list-user-header">
+                                <header><h1>Chat</h1></header>
+                                <div class="settings"></div>
+                                <form class="form-search" id="formSearch" action="">
+                                    <input type="search" placeholder="Search user..." class="search-user-input">
+                                    <button class="btn btn-search">
+                                        <fa-icon [icon]="searchIcon"></fa-icon>
+                                    </button>
+                                </form>
+                            </div>
+                            <div class="list-users">
+                                <app-user-tag *ngFor="let user of listUsers" [user]="user"></app-user-tag>
+                            </div>
+                        </div>
+                        <div class="chat-message-column">
+                            <div class="header-chat">
+                                <div class="user-avatar">
+                                    <fa-icon class="avatar-img" [icon]="iconUser"></fa-icon>
+                                </div>
+                                <header class="chosen-user">User Choose</header>
+                            </div>
+                            <div class="container-chat">
+                                Chat Container
+                            </div>
+                            <div class="footer-chat">
+                                Footer Chat
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div #section id="re-password">
+                    <form action="" class="form-edit-pwd">
+                        <div class="current-pwd">
+                            <label for="pwd">Current Password</label>
+                            <input type="password" id="pwd">
+                        </div>
+                        <div class="new-pwd">
+                            <label for="new-pwd">New Password</label>
+                            <input type="password" id="new-pwd">
+                        </div>
+                        <div class="confirm-new-pwd">
+                            <label for="confirm-new-pwd">Re-Enter New Password</label>
+                            <input type="password" id="confirm-new-pwd">
+                        </div>
+                        <div class="footer-form-edit">
+                            <button class="btn-save-change">Save Changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

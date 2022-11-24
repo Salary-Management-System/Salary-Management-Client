@@ -1,0 +1,361 @@
+.profile-container {
+    display: grid;
+    grid-template-columns: 30% auto;
+    font-size: 18px;
+    height: 100%;
+    width: 100%;
+}
+
+.column-1 {
+    padding: 10px 15px;
+}
+
+.column-2 {
+    border-left: 2px solid var(--KHOAI-MON);
+    overflow-y: auto;
+}
+
+ul.list-roles {
+    list-style-type : circle;
+    padding-inline-start: 20px;
+}
+
+ul.list-roles > li {
+    margin: 5px;
+    margin-left: 0;
+}
+
+.employee-information {
+    margin-top: 10px;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 255px auto;
+    column-gap: 10px;
+}
+
+.employee-information h1 {
+    margin-bottom: 0;
+}
+
+.employee-information, .position {
+    padding-left: 20px;
+}
+
+.header-content {
+    display: grid;
+    grid-template-columns: max-content auto;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.header-content > header {
+    width: max-content;
+    padding-right: 5px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.header-content > .line-header {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.avatar {
+    display: flex;
+    place-content: center center;
+}
+
+.img-area {
+    padding: 10px;
+    border: 2px solid var(--KHOAI-MON);
+    border-radius: 10px;
+}
+
+.basic-infor {
+    display: grid;
+    grid-template-rows: auto 35px 35px auto;
+}
+
+.row-content {
+    position: relative;
+    display: grid;
+    align-items: center;
+}
+
+.row-content > p {
+    font-weight: 600;
+}
+
+.row-content:not(.row-em-id) {
+    grid-template-columns: 1fr 2fr;
+}
+
+.employee_id_text {
+    margin-right: 0;
+    margin-top: 10px;
+    padding: 5px;
+    border: 2px solid var(--KHOAI-MON);
+    border-radius: 10px;
+    width: 100%x;
+    overflow: hidden;
+    text-overflow:clip;
+    white-space: nowrap;
+}
+
+
+
+.btn-copy {
+    position: absolute;
+    right: 1.5px;
+    bottom: 0;
+    cursor: pointer;
+    background-color: white;
+    height: 41px;
+    border: 2px solid var(--KHOAI-MON);
+    border-right: none;
+    border-radius: 0 10px 10px 0;
+    font-size: inherit;
+}
+
+.btn-copy:hover {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.sub-menu > ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-inline-start: 0;
+    margin-block-start: 5px;
+    margin-block-end: 0;
+    border-bottom: 2px solid var(--KHOAI-MON);
+    margin: 0;
+}
+
+.sub-menu ul > li {
+    cursor: pointer;
+    padding: 5px 10px;
+    transition-duration: 100ms;
+}
+
+.sub-menu ul > li:hover,
+.sub-menu .active {
+    border-bottom: 4px solid var(--KHOAI-MON);
+    font-weight: 600;
+}
+
+.activity-container .content > div {
+    display: none;
+    animation: fadeInout 200ms ease-in-out;
+}
+
+.activity-container .content #timeline,#about,#re-password {
+    padding: 10px 20px;
+}
+
+@keyframes fadeInout {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.activity-container .content > div.show {
+    display: block;
+}
+
+.em-infor {
+    border: 2px solid var(--KHOAI-MON);
+    border-radius: 10px;
+    padding: 10px;
+    padding-top: 15px;
+    margin: 10px 5px;
+    position: relative;
+}
+
+.em-infor > ul {
+    list-style-type: none;
+    padding-inline-start: 10px;
+}
+
+.em-infor ul li {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 150px auto;
+    gap: 20px;
+    line-height: 2.5;
+    padding: 5px 0;
+}
+
+.em-infor ul li:not(:last-child) {
+    border-bottom: 2px solid var(--KHOAI-MON);
+}
+
+.em-infor ul li p {
+    font-weight: 600;
+}
+
+.header-about {
+    font-size: 20px;
+    font-weight: bolder;
+    letter-spacing: 1px;
+}
+
+.edit-text {
+    position: absolute;
+    right: 12px;
+    top: 15px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.edit-text:hover {
+    text-decoration : underline;
+}
+
+.sub-menu {
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 1;
+    padding-top: 5px;
+}
+
+.location {
+    opacity: 0.7;
+    font-weight: 600;
+}
+.location > p {
+    display: inline-block;
+    padding-inline-start: 10px;
+}
+
+#message {
+    padding: unset;
+}
+
+.message-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    height: 100%;
+}
+
+.list-users {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.list-user-column {
+    border: 2px solid var(--KHOAI-MON);
+    border-right: 0;
+    border-left: 0;
+    padding: 10px;
+    background-color: var(--KHOAI-MON);
+    color: white;
+}
+
+.list-user-column h1 {
+    font-size: 30px;
+    margin-bottom: 0;
+}
+
+.list-user-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 7px;
+    padding: 5px 0;
+    min-height: 55px;
+}
+
+.chat-message-column > * {
+    display: block;
+    margin: 0;
+    border: 2px solid var(--KHOAI-MON);
+}
+
+.chat-message-column > *:nth-child(2) {
+    border-top: 0;
+    border-bottom: 0;
+}
+
+.chat-message-column > *:first-child {
+    border-top: 0;
+}
+
+.chat-message-column > .header-chat {
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.chat-message-column > .container-chat {
+    height: 65%;
+}
+
+.chat-message-column > .footer-chat {
+    height: 20%;
+}
+
+.form-search-user {
+    display: inline-block;
+}
+
+.header-chat > .user-avatar {
+    border-color: var(--KHOAI-MON);
+}
+
+.form-search {
+    margin-right: 10px;
+    transform: translateY(1px);
+}
+
+#re-password {
+    padding: 50px 150px;
+}
+
+.form-edit-pwd {
+    border: 2px solid;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.form-edit-pwd > div {
+    display: grid;
+    align-items: center;
+    padding: 10px 5px;
+    gap: 20px;
+    grid-template-columns: 45% auto;
+}
+
+.form-edit-pwd > div:last-child {
+    border-top: 1px solid rgba(0, 0, 0, 0.7);
+    padding-bottom: 0;
+    padding-top: 20px;
+    margin-top: 20px;
+}
+
+.btn-save-change {
+    background-color: var(--KHOAI-MON);
+    color: white;
+    transition: 250ms;
+    border-radius: .5rem;
+    border-color: transparent;
+    padding: 5px 0;
+    grid-column: 1/3;
+}
+
+.btn-save-change:hover {
+    background-color: white;
+    color: var(--KHOAI-MON);
+    border-color: var(--KHOAI-MON);
+}

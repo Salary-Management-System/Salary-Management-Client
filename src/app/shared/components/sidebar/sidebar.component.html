@@ -1,0 +1,18 @@
+<nav id="sidebar" #sidebar>
+    <header><h1>
+        SPACE
+    </h1></header>
+    <ul class="menu">
+        <li 
+            class="row-menu"
+            *ngFor="let feature of listFeatures"
+            [class.active]="feature.isActive"
+            (click)="onChangeCategory(feature.featureName)"
+            >
+            <div class="icon-item"><fa-icon [icon]="feature.icon"></fa-icon></div>
+            <div class="feature">
+                {{feature.featureName}}
+            </div>
+        </li>
+    </ul>
+</nav>

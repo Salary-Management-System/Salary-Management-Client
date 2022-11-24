@@ -1,0 +1,28 @@
+.user-tag {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-tag-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-tag-content > header {
+    font-weight: 600;
+}
+
+.user-tag-content > .last-msg {
+    display: flex;
+    flex-direction: row;
+    font-size: 16px;
+    opacity: 0.7;
+}
+
+.msg-content-date {
+    font-style: italic;
+    margin-left: 10px;
+}

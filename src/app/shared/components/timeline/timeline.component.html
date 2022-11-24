@@ -1,0 +1,16 @@
+<div class="timeline">
+    <div *ngFor="let event of events" class="timeline-event">
+        <div class="timeline-point-track-container">
+            <div class="timeline-point"></div>
+            <div class="timeline-track"></div>
+        </div>
+        <div class="timeline-content">
+            <span>
+                {{event.content}}
+            </span>
+            <span class="timeline-date">
+                {{event.date}}
+            </span>
+        </div>
+    </div>
+</div>
