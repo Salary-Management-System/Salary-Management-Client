@@ -3,7 +3,9 @@
 
 
 :root {
-    --KHOAI-MON : #8890b5
+    --pink : #FAEBEFFF;
+    --navy-blue : #333e7a;
+    --box-shadow : rgba(100, 100, 111, 0.2) 0px 7px 29px 0px
 }
 html {
     box-sizing : border-box;
@@ -37,8 +39,8 @@ input[type="search"] {
     border-radius: 1rem;
     background-color: rgba(0, 0, 0, 0.1);
     border: none;
-    outline-color: white;
-    color: white;
+    outline-color: var(--pink);
+    color: var(--pink);
     transition-duration: .5s;
     font-weight: 600;
 }
@@ -48,7 +50,7 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 
 input[type="search"]::placeholder {
-    color: white;
+    color: var(--pink);
     font-style: italic;
 }
 
@@ -77,12 +79,12 @@ label {
 
 .btn-khoai {
     background-color: transparent;
-    color: var(--KHOAI-MON);
+    color: var(--navy-blue);
 }
 
 .btn-khoai:hover {
-    background-color: var(--KHOAI-MON);
-    color: white;
+    background-color: var(--navy-blue);
+    color: var(--pink);
 }
 
 .user-avatar {
@@ -107,5 +109,5 @@ label {
     align-items: center;
     height: 100%;
     cursor: pointer;
-    color: white;
+    color: var(--pink);
 }

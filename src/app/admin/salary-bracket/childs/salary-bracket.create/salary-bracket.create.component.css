@@ -1,0 +1,87 @@
+.container-create {
+    padding: 10px 50px;
+}
+.form-create {
+    border: 2px solid transparent;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px 50px;
+    position: sticky;
+    top: 0;
+    box-shadow: var(--box-shadow);
+}
+
+hr {
+    margin-top: 10px;
+}
+
+
+.form-create label {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    display: inline-block;
+}
+
+.form-create label:first-child {
+    margin-top: 0;
+}
+
+.btn {
+    border-color: var(--navy-blue); 
+    color: var(--navy-blue);
+}
+
+.btn-submit {
+    width: 50%;
+    margin-top: 15px;
+    font-weight: 600;
+    border-width: 2px;
+}
+
+.btn-submit:hover {
+    background-color: var(--navy-blue);
+    color: var(--pink);
+    transition-duration: 250ms;
+}
+
+.level-options, .position-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 5px;
+    box-shadow: var(--box-shadow);
+    padding: 10px;
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: white;
+}
+
+.level-options > *, .position-options > * {
+    padding: 10px;
+    border-radius: 10px;
+    transition-duration: 250ms;
+    cursor: pointer;
+}
+
+.level-options >*:hover, .position-options >*:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: hsl(0, 0%, 100%);
+}
+
+.range-salary label, .job label {
+    font-size: 0.8em;
+}
+
+.header {
+    padding: 10px 0;
+    padding-left: 10px;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.job, .range-salary {
+    display: grid;
+    grid-template-columns: repeat(2, 47%);
+    column-gap: 6%;
+}

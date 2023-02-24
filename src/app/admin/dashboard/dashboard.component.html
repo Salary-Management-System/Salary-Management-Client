@@ -1,1 +1,120 @@
-<p>Dashboard</p>
+<div class="dashboard-container" @fadeUpIn>
+    <header>Overview</header>
+    <div class="summary-content" id="summary">
+        <header>Summary (Current month)</header>
+        <div class="content">
+            <div class="field">
+                <fa-icon [icon]="eyeIcon"></fa-icon>
+                <header>Salary</header>
+                <div class="field-content">
+                    {{doughtnutData[0].toLocaleString()}}
+                    <div class="current-unit">VND</div>
+                </div>
+                <div class="oscillate">
+                    <div class="content">
+                        <fa-icon [icon]="trendUpIcon" style="color :hsl(120, 100%, 40%);"  *ngIf="doughtnutData[0] > doughtnutDataPrev[0];"></fa-icon>
+                        <fa-icon [icon]="trendDownIcon" style="color : red"  *ngIf="doughtnutData[0] < doughtnutDataPrev[0];"></fa-icon>
+                        <p class="percentage-variable" [style.color]="doughtnutData[0] > doughtnutDataPrev[0] ? 'hsl(120, 100%, 40%)' : 'red'">
+                            {{calPercentage(doughtnutData[0], doughtnutDataPrev[0]) + '%'}}
+                            <em> via last month</em>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <fa-icon [icon]="eyeIcon"></fa-icon>
+                <header>Bonus</header>
+                <div class="field-content">
+                    {{doughtnutData[1].toLocaleString()}}
+                    <div class="current-unit">VND</div>
+                </div>
+                <div class="oscillate">
+                    <div class="content">
+                        <fa-icon [icon]="trendUpIcon" style="color :hsl(120, 100%, 40%);"  *ngIf="doughtnutData[1] > doughtnutDataPrev[1];"></fa-icon>
+                        <fa-icon [icon]="trendDownIcon" style="color : red"  *ngIf="doughtnutData[1] < doughtnutDataPrev[1];"></fa-icon>
+                        <p class="percentage-variable" [style.color]="doughtnutData[1] > doughtnutDataPrev[1] ? 'hsl(120, 100%, 40%)' : 'red'">
+                            {{calPercentage(doughtnutData[1], doughtnutDataPrev[1]) + '%'}}
+                            <em> via last month</em>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <fa-icon [icon]="eyeIcon"></fa-icon>
+                <header>Deduction</header>
+                <div class="field-content">
+                    {{doughtnutData[2].toLocaleString()}}
+                    <div class="current-unit">VND</div>
+                </div>
+                <div class="oscillate">
+                    <div class="content">
+                        <fa-icon [icon]="trendUpIcon" style="color :hsl(120, 100%, 40%);"  *ngIf="doughtnutData[2] > doughtnutDataPrev[2];"></fa-icon>
+                        <fa-icon [icon]="trendDownIcon" style="color : red"  *ngIf="doughtnutData[2] < doughtnutDataPrev[2];"></fa-icon>
+                        <p class="percentage-variable" [style.color]="doughtnutData[2] > doughtnutDataPrev[2] ? 'hsl(120, 100%, 40%)' : 'red'">
+                            {{calPercentage(doughtnutData[2], doughtnutDataPrev[2]) + '%'}}
+                            <em> via last month</em>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <fa-icon [icon]="eyeIcon"></fa-icon>
+                <header>Allowance</header>
+                <div class="field-content">
+                    {{doughtnutData[3].toLocaleString()}}
+                    <div class="current-unit">VND</div>
+                </div>
+                <div class="oscillate">
+                    <div class="content">
+                        <fa-icon [icon]="trendUpIcon" style="color :hsl(120, 100%, 40%);"  *ngIf="doughtnutData[3] > doughtnutDataPrev[3];"></fa-icon>
+                        <fa-icon [icon]="trendDownIcon" style="color : red"  *ngIf="doughtnutData[3] < doughtnutDataPrev[3];"></fa-icon>
+                        <p class="percentage-variable" [style.color]="doughtnutData[3] > doughtnutDataPrev[3] ? 'hsl(120, 100%, 40%)' : 'red'">
+                            {{calPercentage(doughtnutData[3], doughtnutDataPrev[3]) + '%'}}
+                            <em> via last month</em>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="visualize-data-container" id="data">
+        <div class="doughnut-graph">
+            <header>Components</header>
+            <canvas baseChart [data]="doughnutChartDatas" [type]="doughnutChartType"></canvas>
+        </div>
+        <div class="bar-graph">
+            <header>Salary Fund</header>
+            <canvas baseChart [data]="lineChartDatas" [type]="lineChartType"></canvas>
+        </div>
+    </div>
+    <div class="payment-activity" id="activity">
+        <header>Payment Activity</header>
+        <table class="table activity-table">
+            <thead class="table-light">
+                <tr>
+                    <th scope="col">Payroll ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Payment</th>
+                    <th scope="col">Payment Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let payroll of recentPayroll">
+                    <th scope="row">{{payroll.payroll_id}}</th>
+                    <td>{{payroll.payroll_name}}</td>
+                    <td *ngIf="payroll.isPayment; else empty">
+                        <fa-icon [icon]="checkIcon" style="color: hsl(120, 100%, 40%);"></fa-icon>
+                        <p class="status">Paid</p>
+                    </td>
+                    <ng-template #empty>
+                        <td>
+                            <fa-icon [icon]="xmartIcon" style="color : red"></fa-icon>
+                            <p class="status">Not Yet</p>
+                        </td>
+                    </ng-template>
+                    <td>{{payroll.isPayment ? payroll.payment_date : '---'}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

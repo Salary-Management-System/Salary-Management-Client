@@ -1,0 +1,52 @@
+<div class="container-home">
+    <div class="data">
+        <div class="header-table">
+            <span>ID</span>
+            <span>Name</span>
+            <span>Deparment</span>
+            <span>Job Description</span>
+            <span></span>
+        </div>
+        <div class="data-table">
+            <div class="row-data" *ngFor="let pos of listPositionsForDisplay">
+                <div class="property">{{pos.position_id}}</div>
+                <div class="property">{{pos.position_name}}</div>
+                <div class="property">{{pos.department.department_name}}</div>
+                <div class="property">{{pos.job_description}}</div>
+                <div class="property">
+                    <button class="btn-edit">
+                        <fa-icon [icon]="iconEdit"></fa-icon>
+                    </button>
+                    <button class="btn-del">
+                        <fa-icon [icon]="iconDel"></fa-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-filter">
+        <form 
+        class="form-filter" 
+        #allowanceFormCreate="ngForm"
+    >
+        <header class="header-filter">Filter</header>
+        <label for="deparment_name">Department</label>
+        <input 
+            id="deparment_name"
+            type="text"
+            class="form-control"
+            #inputFilter
+            (input)="onAutocompleteFilter()"
+            [(ngModel)]="selectedDepartments"
+            [ngModelOptions]="{standalone: true}"
+            autocomplete="off"
+        >
+        <div class="options-department" *ngIf="isShowOptions && listDeparmentsForDisplay.length > 0">
+            <div class="option" *ngFor="let dep of listDeparmentsForDisplay" (click)="onSelect(dep.department_name)">
+                {{dep.department_name}}
+            </div>
+        </div>
+        <button class="btn btn-submit">Run</button>
+    </form>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="department-container" @fadeUpIn>
+    <div class="header-menu">
+        <header class="header" routerLink="/admin/bracket/departments">Department</header>
+        <div class="menu">
+            <input type="search" placeholder="Search...">
+            <button routerLink="/admin/bracket/departments/new" class="btn">New</button>
+            <button class="btn options">Options</button>
+            <div class="option-menu">
+                <div class="opt"></div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="content">
+        <router-outlet></router-outlet>
+    </div>
+</div>

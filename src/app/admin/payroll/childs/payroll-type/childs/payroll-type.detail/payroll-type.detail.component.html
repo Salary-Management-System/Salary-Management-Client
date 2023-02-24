@@ -1,0 +1,37 @@
+<div class="container-detail">
+    <form action="" class="form-edit">
+        <input type="text" ngModel name="type_name">
+        <label for="id">ID</label>
+        <input type="text" ngModel name="payroll_type_id" id="id" class="form-control">
+        <div class="properties">
+            <div class="deductions">
+                <div class="selected-options">
+                    <div class="option" *ngFor="let dec of listProsDisplay['deduction']">{{dec.deduction_name}}</div>
+                </div>
+                <div class="options">
+                    <div class="option" *ngFor="let dec of listPros['deduction']">{{dec.deduction_name}}</div>
+                </div>
+            </div>
+            <div class="allowances">
+                <div class="selected-options">
+                    <div class="option" *ngFor="let allowance of listProsDisplay['allowance']">{{allowance.allowance_name}}</div>
+                </div>
+                <div class="options">
+                    <div class="option" *ngFor="let allowance of listPros['allowance']">{{allowance.allowance_name}}</div>
+                </div>
+            </div>
+            <div class="bonuses">
+                <div class="selected-options">
+                    <div class="option" *ngFor="let bonus of listProsDisplay['bonus']">{{bonus.bonus_name}}</div>
+                </div>
+                <div class="options">
+                    <div class="option" *ngFor="let bonus of listPros['bonus']">{{bonus.bonus_name}}</div>
+                </div>
+            </div>
+        </div>
+        <label for="effect_date">Effect From</label>
+        <input type="text" ngModel name="effect_date" id="effect_date">
+        <label for="expired_date">Expired</label>
+        <input type="text" ngModel name="expired_date" id="expired_date">
+    </form>
+</div>

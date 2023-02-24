@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: var(--KHOAI-MON);
+    color: var(--navy-blue);
     height: 100%;
     font-size: 16px;
 }
@@ -10,10 +10,9 @@
 #login-form {
     width: 25%;
     height: auto;
-    padding: 10px 15px;
+    /* padding: 10px 15px; */
     text-align: center;
     display: grid;
-    /* grid-template-rows: 30px, 50px, repeat(3, 1fr) auto; */
     row-gap: 20px;
 }
 
@@ -31,17 +30,17 @@
 #login-form input {
     outline: none;
     border: none;
-    border-bottom: 2px solid var(--KHOAI-MON);
+    border-bottom: 2px solid var(--navy-blue);
     padding: 15px 5px;
     width: 100%;
 }
 
 #login-form input::placeholder {
-    color: var(--KHOAI-MON);
+    color: var(--navy-blue);
 }
 
 #login-form > button {
-    background-color: var(--KHOAI-MON);
+    background-color: var(--navy-blue);
     color: white;
     width: 100%;
     border-radius: .5rem;
@@ -53,19 +52,20 @@
 
 #login-form > button:hover {
     background-color: white;
-    color: var(--KHOAI-MON);
-    border: 2px dashed var(--KHOAI-MON);
+    color: var(--navy-blue);
+    border: 2px dashed var(--navy-blue);
 }
 
 #login-form > caption {
-    margin-top: 20px;
+    margin-top: 10px;
     display: block;
     font-weight: 600;
+    text-align: center;
 }
 
 #login-form caption > a {
     text-decoration: none;
-    color: var(--KHOAI-MON);
+    color: var(--navy-blue);
     filter: opacity(80%);
 }
 
@@ -107,5 +107,5 @@
     display: grid;
     place-content: center center;
     height: 100%;
-    width: 30px;
+    width: 50px;
 }

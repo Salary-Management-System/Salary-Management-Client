@@ -1,0 +1,47 @@
+.container-home {
+    padding: 0 350px;
+}
+.data-table {
+    box-shadow: var(--box-shadow);
+    padding: 0 25px;
+    border-radius: 10px;
+    display: block;
+    font-size: 18px;
+}
+
+.header-table, .data-table > .row-data {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, calc((100% - 60px) / 3))) 60px;
+    padding: 15px 0;
+    font-weight: 600;
+    align-items: baseline;
+}
+
+
+.data-table > .row-data > .property:last-child {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.data-table > .row-data > .property:last-child > * {
+    padding: 5px;
+    border: none;
+    border-radius: 10px;
+}
+
+.data-table > .row-data > .property:last-child > *:hover {
+    opacity: .7;
+}
+
+
+
+.header-table {
+    font-size: 16px;
+    text-transform: uppercase;
+    padding: 15px 25px;
+}
+
+.data-table > .row-data:not(:last-child) {
+    border-bottom: 1px solid hsl(231, 41%, 45%, 0.4);
+}

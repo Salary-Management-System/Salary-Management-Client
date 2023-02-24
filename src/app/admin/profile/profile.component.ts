@@ -1,10 +1,10 @@
-import { Component, ElementRef, OnInit, QueryList, ViewChildren, AfterViewInit } from '@angular/core';
+import { Component, ElementRef, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { faUserAlt, faCalendar, faLocationDot, faSearch } from '@fortawesome/free-solid-svg-icons'
 import { LocalStorageService } from 'src/app/services/local-storage.service/local-storage.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import axios from 'axios';
 import { ApiServiceService } from 'src/app/services/api.service/api-service.service';
-import { animate, state, style, transition, trigger } from '@angular/animations';
+import { animate, style, transition, trigger } from '@angular/animations';
 
 const events = [
   { content : 'Access', date : '11/03/2000' },
@@ -20,14 +20,25 @@ const apiPath = '/users';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  styleUrls: ['./profile.component.css'],
+  animations : [
+    trigger('fadeUpIn', [
+      transition(':enter', [
+        style({ transform : 'translateY(20px)', opacity : 0 }),
+        animate('250ms', style({ transform : 'translateY(0)', opacity : 1 }))
+      ]),
+      transition(':leave', [
+        animate('250ms 250ms', style({ transform : 'translateY(20px)', opacity : 0 }))
+      ])
+    ])
+  ]
 })
 export class ProfileComponent implements OnInit {
   // Data
   user : any;
   employee : any;
   events = events;
-  geo : any;
+  geo = { city : 'HCM' };
   listUsers : any[] = [];
   // roles : any[]
 
@@ -52,16 +63,9 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = this._localStorageService.getObject('user');
-    const [dateConvert] = new Date(this.user['created_at']).toLocaleString().split(',');
-    this.user['created_at'] = dateConvert
 
     this.user = {...this.user}
     this.employee = this.user.employee ? {...this.user.employee} : null;
-
-    // Get IP
-    axios.get('http://ip-api.com/json').then(res => {
-      this.geo = {...res.data};
-    })
 
     // Get list of users
     this._apiService.get(apiPath).then(

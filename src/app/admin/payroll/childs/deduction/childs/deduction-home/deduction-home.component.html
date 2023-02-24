@@ -1,0 +1,81 @@
+<div class="container-home">
+    <div class="data">
+        <div class="header-table">
+            <span>ID</span>
+            <span>Deduction</span>
+            <span>Effect From</span>
+            <span>Resourse</span>
+            <span>Percentage</span>
+            <span></span>
+        </div>
+        <div class="data-table">
+            <div class="row-data" *ngFor="let deduction of deductions">
+                <div class="property">{{deduction.deduction_id}}</div>
+                <div class="property">{{deduction.deduction_name}}</div>
+                <div class="property">{{deduction.effect_date | date:'shortDate'}}</div>
+                <div class="property">{{deduction.from_resource}}</div>
+                <div class="property">{{deduction.by_percentage}}</div>
+                <div class="property">
+                    <button class="btn-edit">
+                        <fa-icon [icon]="iconEdit"></fa-icon>
+                    </button>
+                    <button class="btn-del">
+                        <fa-icon [icon]="iconDel"></fa-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="create-container">
+        <form 
+            class="form-filter" 
+            #allowanceFormCreate="ngForm"
+        >
+            <header class="header-filter">Filter</header>
+            <label for="effect_date">Effect from</label>
+            <div class="input-group">
+                <input
+                    id="effect_date"
+                    class="form-control"
+                    placeholder="dd/mm/yyyy"
+                    name="effect"
+                    ngbDatepicker
+                    #effect_select="ngbDatepicker"
+                    ngModel
+                />
+                <button class="btn btn-khoai"(click)="effect_select.toggle()" type="button">
+                    <fa-icon [icon]="iconCalendar"></fa-icon>
+                </button>
+            </div>
+            <label for="percentage">Percentage {{percentageSelection}}%</label>
+            <input
+                class="form-range"
+                type="range"
+                name="percentage"
+                id="percentage"
+                min="0" max="100"
+                #inputPercent
+                (input)="onSelectPercent(inputPercent)"
+                [(ngModel)]="percentageSelection"
+            >
+            <label for="resource">Resourse</label>
+            <input 
+                class="form-control"
+                type="text"
+                ngModel
+                name="from_resource"
+                [(ngModel)]="resourceFilter"
+                (click)="onExpandResourceOptions()"
+                maxlength="0"   
+            >
+            <div class="resource-options" *ngIf="isShowResource" @fadeUpIn>
+                <button 
+                    class="option"
+                    *ngFor="let option of resourceOptions"
+                    (click)="onChangeResource(option)"
+                >{{option}}</button>
+            </div>
+            <button class="btn btn-submit">Run</button>
+        </form>
+    </div>
+</div>

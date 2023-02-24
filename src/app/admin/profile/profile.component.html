@@ -1,4 +1,4 @@
-<div class="profile-container">
+<div class="profile-container" @fadeUpIn>
     <div class="column-1">
         <div class="avatar">
             <!-- Avatar Picture -->
@@ -17,10 +17,10 @@
             </div>
             <div class="row-content">
                 <header>Created</header>
-                <p>: {{user.created_at ? user.created_at : '---'}}</p>
+                <p>: {{user.created_at | date : 'longDate'}}</p>
             </div>
             <div class="row-content row-em-id" *ngIf="employee">
-                <header style="line-height: 1.5;">Employee ID :</header>
+                <header style="line-height: 1.5;">Employee ID</header>
                 <p class="employee_id_text">{{user.employee_id ? user.employee_id : '---'}}</p>
                 <button
                     class="btn-copy"
@@ -42,25 +42,25 @@
     </div>
     <div class="column-2">
         <div class="employee-information" *ngIf="employee; else emptyEm">
-            <h1>{{employee.firstname + ' ' + employee.lastname}}</h1>
+            <header>{{employee.firstname + ' ' + employee.lastname}}</header>
             <div class="location">
                 <fa-icon [icon]="geoIcon"></fa-icon>
-                <p>{{geo ? geo.city : ''}}</p>
+                <p [ngStyle]="{'marginLeft' : '10px'}">{{geo ? geo.city : ''}}</p>
             </div>
+            <p class="position">Position name</p>
         </div>
-        <p class="position">Position name</p>
         <ng-template #emptyEm>
             <div class="employee-information">
                 <h1>{{user.username}}</h1>
                 <div class="location">
                     <fa-icon [icon]="geoIcon"></fa-icon>
-                    <p>{{geo ? geo.city : ''}}</p>
+                    <p [ngStyle]="{'marginLeft' : '10px'}">{{geo ? geo.city : ''}}</p>
                 </div>
             </div>
         </ng-template>
         <div class="activity-container">
             <nav class="sub-menu">
-                <form action="" #formEdit></form>
+                <!-- <form action="" #formEdit></form> -->
                 <ul>
                     <li class="timeline" #subMenuItem (click)="onChangeCategory('timeline')">Timeline</li>
                     <li class="about" #subMenuItem (click)="onChangeCategory('about')">About</li>
@@ -235,19 +235,17 @@
                                 <app-user-tag *ngFor="let user of listUsers" [user]="user"></app-user-tag>
                             </div>
                         </div>
-                        <div class="chat-message-column">
-                            <div class="header-chat">
-                                <div class="user-avatar">
-                                    <fa-icon class="avatar-img" [icon]="iconUser"></fa-icon>
-                                </div>
-                                <header class="chosen-user">User Choose</header>
+                        <div class="header-chat">
+                            <div class="user-avatar">
+                                <fa-icon class="avatar-img" [icon]="iconUser"></fa-icon>
                             </div>
-                            <div class="container-chat">
-                                Chat Container
-                            </div>
-                            <div class="footer-chat">
-                                Footer Chat
-                            </div>
+                            <header class="chosen-user">User Choose</header>
+                        </div>
+                        <div class="container-chat">
+                            Chat Container
+                        </div>
+                        <div class="footer-chat">
+                            Footer Chat
                         </div>
                     </div>
                 </div>

@@ -1,0 +1,45 @@
+<div class="container-create">
+    <form action="" class="form-create" #positionFormCreate="ngForm" (ngSubmit)="onSubmit(positionFormCreate)">
+        <label for="name">Name</label>
+        <input 
+            type="text"
+            id="name"
+            ngModel
+            name="name"
+            class="form-control"
+            autocomplete="off"
+        >
+        <label for="id">ID</label>
+        <input
+            type="text"
+            id="id"
+            [(ngModel)]="idGenerate"
+            name="id"
+            class="form-control"
+            disabled
+        >
+        <label for="despartment">Department</label>
+        <input
+            type="text"
+            class="form-control"
+            name="department_id"
+            [(ngModel)]="selectedDepartment"
+            (input)="onAutocompleteFilter()"
+            autocomplete="off"
+        >
+        <div class="options-department" *ngIf="isShowOptions && listDeparmentsForDisplay.length > 0">
+            <div class="option" *ngFor="let dep of listDeparmentsForDisplay" (click)="onSelectDepartment(dep.department_id)">
+                {{dep.department_name}}
+            </div>
+        </div>
+        <label for="desciption">Job Description</label>
+        <textarea 
+            name="desciption"
+            id="desciption" 
+            cols="30" rows="10"
+            ngModel
+            class="form-control"
+        ></textarea>
+        <button class="btn btn-submit" type="submit">Submit</button>
+    </form>
+</div>

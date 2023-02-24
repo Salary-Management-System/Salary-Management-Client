@@ -10,13 +10,17 @@
     </form>
     <ul>
         <li>
-            <button class="notification circled btn-navbar-item"><fa-icon [icon]="notificationIcon"></fa-icon></button>
+            <button class="notification circled btn-navbar-item"><fa-icon [icon]="notificationIcon" size="lg"></fa-icon></button>
+            <span class="badge">8</span>
         </li>
         <li>
-            <button class="message circled btn-navbar-item"><fa-icon [icon]="messageIcon"></fa-icon></button>
+            <button class="message circled btn-navbar-item"><fa-icon [icon]="messageIcon" size="lg"></fa-icon></button>
+            <span class="badge">8</span>
+        </li>
         <li class="item-img"
             (mouseover)="isHoverForShowMenu = true"
             (mouseout)="isHoverForShowMenu = false"
+            routerLink="/admin/profile"
         >
             <div class="profile-user-img btn circled">
                 <!-- <img src="https://res.cloudinary.com/halshop/image/upload/v1650820345/vldvnzhkqelxjv28lolo.jpg" alt="Profile Picture"> -->

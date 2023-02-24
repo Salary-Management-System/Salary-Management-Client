@@ -1,0 +1,47 @@
+<div class="container-create">
+    <div class="header" routerLink="/admin/bracket">Job Title</div>
+    <hr>
+    <form 
+        class="form-create"
+        #jobFormCreate="ngForm"
+        (ngSubmit)="onSubmit(jobFormCreate)"
+    >
+        <label for="job">Job Title</label>
+        <div class="job" id="job">
+            <div>
+                <label for="position">Position</label>
+                <input type="text" #positionInput name="position_id" id="position" ngModel class="form-control" (input)="onAutocomplete(positionInput)" autocomplete="off">
+                <div @fadeUpIn class="position-options" *ngIf="listPositionsForDisplay.length > 0">
+                    <div class="option" *ngFor="let pos of listPositionsForDisplay" (click)="onSetValue(jobFormCreate,positionInput, pos.position_name)">{{pos.position_name}}</div>
+                </div>
+            </div>
+            <div>
+                <label for="level">Level</label>
+                <input type="text" #levelInput name="level_id" id="level" ngModel class="form-control" (input)="onAutocomplete(levelInput)" autocomplete="off">
+                <div @fadeUpIn class="level-options" *ngIf="listLevelsForDisplay.length > 0">
+                    <div class="option" *ngFor="let lev of listLevelsForDisplay" (click)="onSetValue(jobFormCreate,levelInput, lev.level_name)">{{lev.level_name}}</div>
+                </div>
+            </div>
+        </div>
+        <label id="range">Range Salary</label>
+        <div id="range" class="range-salary">
+            <div>
+                <label for="maximum_salary">Maximum</label>
+                <input name="maximum_salary" id="maximum_salary" type="number" ngModel class="form-control" step="1000000">
+            </div>
+            <div>
+                <label for="minimum_salary">Minimum</label>
+                <input name="minimum_salary" id="minimum_salary" type="number" ngModel class="form-control" step="1000000">
+            </div>
+        </div>
+        <label for="job_requirement">Job Requirement</label>
+        <textarea 
+            name="job_requirement" 
+            id="job_requirement" 
+            cols="30" rows="10"
+            ngModel
+            class="form-control"
+        ></textarea>
+        <button class="btn btn-submit" type="submit">Submit</button>
+    </form>
+</div>

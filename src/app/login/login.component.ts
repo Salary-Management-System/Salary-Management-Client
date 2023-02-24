@@ -6,7 +6,7 @@ import axios from 'axios';
 import { ApiServiceService } from '../services/api.service/api-service.service';
 import { LocalStorageService } from '../services/local-storage.service/local-storage.service';
 
-interface UserModel {
+export interface UserModel {
   username: string;
   password: string;
 }
@@ -33,7 +33,9 @@ export class LoginComponent implements OnInit {
   ) {}
   
   ngOnInit(): void {
-    console.log(this.isShowPwd)
+    if(this._localStorage.get('accessToken')) {
+      this._router.navigate(['admin/dashboard'])
+    }
   }
   onShowPassword() {
     this.isShowPwd = !this.isShowPwd;
@@ -45,16 +47,21 @@ export class LoginComponent implements OnInit {
     this.contentBtn = '';
     // Process user input and executing authentication process
     this._apiService
-      .post('/auth', JSON.stringify({ ...this.user }))
+      .auth(JSON.stringify({ ...this.user }))
       .then((response) => {
         // Saving access token on local storage
         const { accessToken, user } = response.data.data
-        this._localStorage.set('accessToken', accessToken);
         // Delete password
         delete user.password;
         this._localStorage.setObject('user', user);
+        // Set ID user for api service
+        this._apiService.user = user.username;
+        // Set the interceptor of axios instance
+        this._apiService.setAccessToken(accessToken);
+      })
+      .then(_ => {
         // Navigate to admin page
-        this._router.navigate(['admin/profile']);
+        this._router.navigate(['admin/dashboard']);
       })
       .catch((err) => {
         console.error(err);

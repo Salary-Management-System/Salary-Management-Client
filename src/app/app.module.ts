@@ -7,6 +7,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { AdminModule } from './admin/admin.module';
+import { AuthService } from './services/auth.service/auth.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +20,7 @@ import { AdminModule } from './admin/admin.module';
     FormsModule,
     AdminModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

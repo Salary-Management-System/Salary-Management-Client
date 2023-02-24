@@ -1,0 +1,23 @@
+<div class="container-home">
+    <div class="data">
+        <div class="header-table">
+            <span>ID</span>
+            <span>Department</span>
+            <span></span>
+        </div>
+        <div class="data-table">
+            <div class="row-data" *ngFor="let dec of listDepartments">
+                <div class="property">{{dec.department_id}}</div>
+                <div class="property">{{dec.department_name}}</div>
+                <div class="property">
+                    <button class="btn-edit">
+                        <fa-icon [icon]="iconEdit"></fa-icon>
+                    </button>
+                    <button class="btn-del">
+                        <fa-icon [icon]="iconDel"></fa-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

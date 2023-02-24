@@ -1,0 +1,17 @@
+<div class="payroll-type-container">
+    <div class="header-menu">
+        <header class="header" routerLink="/admin/payroll/payroll-types">Payroll Type</header>
+        <div class="menu">
+            <input type="search" placeholder="Search...">
+            <button routerLink="/admin/payroll/payroll-types/new" class="btn">New</button>
+            <button class="btn options">Options</button>
+            <div class="option-menu">
+                <div class="opt"></div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="content">
+        <router-outlet></router-outlet>
+    </div>
+</div>

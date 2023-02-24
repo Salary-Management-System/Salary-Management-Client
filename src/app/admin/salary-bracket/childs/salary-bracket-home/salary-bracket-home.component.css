@@ -1,0 +1,140 @@
+.container-home {
+    padding: 10px 50px;
+}
+.container-home > * {
+    margin-bottom: 40px;
+}
+hr {
+    margin-top: 10px;
+}
+
+.filter-btn {
+    position: absolute;
+    top: 10px;
+    right: 0;
+    padding: 5px 7px;
+    border: 2px solid var(--navy-blue);
+    border-radius: 10px;
+    transition-duration: 250ms;
+    font-weight: 600;
+    color: var(--navy-blue);
+}
+
+.filter-btn > fa-icon {
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.filter-btn:hover {
+    color: var(--pink);
+    background-color: var(--navy-blue);
+}
+
+.status {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.data-table {
+    box-shadow: var(--box-shadow);
+    padding: 0 25px;
+    border-radius: 10px;
+    display: block;
+    font-size: 18px;
+}
+
+.header-table, .data-table > .row-data {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr) 60px;
+    padding: 15px 0;
+    font-weight: 600;
+    align-items: baseline;
+    gap: 10px;
+}
+
+.header-table {
+    padding: 10px 25px;
+}
+
+.header-table > span {
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.data-table > .row-data:not(:last-child) {
+    border-bottom: 1px solid hsl(231, 41%, 45%, 0.4);
+}
+
+.data-table > .row-data > .property:last-child {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.data-table > .row-data > .property:last-child > * {
+    padding: 5px;
+    border: none;
+    border-radius: 10px;
+}
+
+.data-table > .row-data > .property:last-child > *:hover {
+    opacity: .7;
+}
+
+
+.component-salary_bracket .content {
+    display: grid;
+    grid-template-columns: repeat(2, 48%);
+    column-gap: 4%;
+    row-gap: 20px;
+}
+
+.component-salary_bracket .content .box {
+    display: grid;
+    grid-template-columns: 85% 15%;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+    padding: 20px 25px;
+    padding-top: 5px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.box:hover > .box-right {
+    transform: translateX(5px);
+}
+
+.component-salary_bracket .content .box .box-right {
+    justify-self: right;
+    transition: transform 250ms ease-in-out;
+}
+
+.header {
+    padding: 10px 0;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.header-menu {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    align-items: center;
+}
+
+.header-menu .menu {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+}
+
+.header-menu .menu >* {
+    transition-duration: 250ms;
+}
+
+.header-menu .menu >*:not(input):hover {
+    background-color: var(--navy-blue);
+    color: var(--pink);
+}

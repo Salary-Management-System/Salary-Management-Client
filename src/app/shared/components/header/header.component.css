@@ -1,11 +1,10 @@
 #navbar {
-    background-color: var(--KHOAI-MON);
-    color: white;
+    background-color: transparent;
+    color: var(--pink);
     padding: 10px 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-radius: 0 0 0 1rem;
     position: relative;
 }
 
@@ -19,6 +18,23 @@
 
 #navbar ul li {
     margin: 0 5px;
+    position: relative;
+}
+
+#navbar ul li .badge {
+    display: grid;
+    place-content: center center;
+    position: absolute;
+    top: -3px;
+    right: -1px;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    background-color: hsl(354, 70%, 60%);
+    color: white;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    font-size: 12px;
+    user-select: none;
 }
 
 #navbar ul li:nth-child(3) {
@@ -83,14 +99,14 @@ app-dropdown-user {
     border: none;
 }
 
-:is(.btn-navbar-item:hover, .btn-navbar-item:focus-within) {
+.btn-navbar-item:not(:last-child) {
     background-color: var(--KHOAI-MON);
     color: rgb(240, 240, 240);
-    border: none;
 }
 
-.profile-user-img:hover > fa-icon {
-    transform: translateY(-1px) scale(1.1);
+#navbar ul li:hover > button,
+#navbar ul li:hover > div > fa-icon {
+    transform: scale(1.1);
 }
 
 .menu-btn {

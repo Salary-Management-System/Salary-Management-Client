@@ -1,0 +1,97 @@
+.form-create {
+    border: 2px solid transparent;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px 50px;
+    position: sticky;
+    top: 0;
+    box-shadow: var(--box-shadow);
+    position: relative;
+}
+
+
+.form-create label {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    display: inline-block;
+}
+
+.form-create label:first-child {
+    margin-top: 0;
+}
+
+.btn {
+    border-color: var(--navy-blue); 
+    color: var(--navy-blue);
+}
+
+.btn-submit {
+    width: 50%;
+    margin-top: 15px;
+    font-weight: 600;
+    border-width: 2px;
+}
+
+.btn-submit:hover {
+    background-color: var(--navy-blue);
+    color: var(--pink);
+    transition-duration: 250ms;
+}
+
+.property-options {
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--box-shadow);
+    gap : 10px;
+    max-height : 200px;
+    overflow-y : auto;
+    background-color : white;
+    padding : 10px 15px;
+    width : 35%;
+}
+
+.property-options > .option {
+    display : flex;
+    flex-direction : column;
+    gap : 10px;
+}
+
+.property-options > .option header {
+    font-weight : 600;
+}
+
+
+.property-options > .option > .sub-option {
+    margin-left : 10px;
+    padding : 5px 10px;
+    border-radius : 10px;
+    transition-duration : 100ms;
+    cursor: pointer;
+}
+
+.property-options > .option > .sub-option:hover {
+    background-color : rgba(0, 0, 0 , 0.1)
+}
+
+
+.selected-container {
+    display: flex;
+    gap: 5px;
+    align-items: baseline;
+    cursor: pointer;
+    height: 47px;
+    scroll-snap-type: x mandatory;
+    overflow-x: auto;
+}
+
+.selected-container >* {
+    display: flex;
+    gap: 7px;
+    align-items: baseline;
+    border-radius: 15px;
+    background-color: var(--navy-blue);
+    color: var(--pink);
+    font-size: 14px;
+    padding: 3px 10px;
+}

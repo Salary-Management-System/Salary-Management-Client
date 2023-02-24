@@ -1,0 +1,25 @@
+<div class="container-home">
+    <div class="data">
+        <div class="header-table">
+            <span>ID</span>
+            <span>Level</span>
+            <span>YOE</span>
+            <span></span>
+        </div>
+        <div class="data-table">
+            <div class="row-data" *ngFor="let level of listLevels">
+                <div class="property">{{level.level_id}}</div>
+                <div class="property">{{level.level_name}}</div>
+                <div class="property">{{level.yoe_required}}</div>
+                <div class="property">
+                    <button class="btn-edit">
+                        <fa-icon [icon]="iconEdit"></fa-icon>
+                    </button>
+                    <button class="btn-del">
+                        <fa-icon [icon]="iconDel"></fa-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

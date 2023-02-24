@@ -1,0 +1,25 @@
+<div class="container-create">
+    <form action="" class="form-create" #allowanceFormCreate="ngForm" (ngSubmit)="postAllowace(allowanceFormCreate)">
+        <label for="name">Allowance</label>
+        <input type="text" name="name" ngModel id="name" class="form-control" autocomplete="off">
+        <label for="effect_date">Effect from</label>
+        <div class="input-group">
+            <input id="effect_date" class="form-control" placeholder="dd/mm/yyyy" name="effect" ngbDatepicker
+                #effect_select="ngbDatepicker" ngModel />
+            <button class="btn btn-khoai" (click)="effect_select.toggle()" type="button">
+                <fa-icon [icon]="iconCalendar"></fa-icon>
+            </button>
+        </div>
+        <label for="expired_date">Expired at</label>
+        <div class="input-group">
+            <input id="expired_date" class="form-control" placeholder="dd/mm/yyyy" name="expired" ngbDatepicker
+                #expired_select="ngbDatepicker" ngModel />
+            <button class="btn btn-khoai" (click)="expired_select.toggle()" type="button">
+                <fa-icon [icon]="iconCalendar"></fa-icon>
+            </button>
+        </div>
+        <label for="basic_amount">Basic Amount</label>
+        <input type="number" class="form-control" name="basic_amount" ngModel step="50000" autocomplete="off">
+        <button class="btn btn-submit" type="submit">Submit</button>
+    </form>
+</div>

@@ -1,0 +1,73 @@
+<div class="container-home">
+    <div class="recent-payroll">
+        <header class="header">Recently Payrolls</header>
+        <button class="filter-btn">
+            Filter
+            <fa-icon [icon]="slideIcon"></fa-icon>
+        </button>
+        <div class="content">
+            <div class="header-table">
+                <span>Payroll Name</span>
+                <span>Status</span>
+                <span>Payment Date</span>
+            </div>
+            <div class="data-table">
+                <div class="row-data" *ngFor="let payroll of recentPayroll.slice(0,6)">
+                    <div class="property">{{payroll.payroll_name}}</div>
+                    <div class="property" *ngIf="payroll.isPayment; else empty">
+                        <fa-icon [icon]="checkIcon" style="color: hsl(120, 100%, 40%);"></fa-icon>
+                        <p class="status">Paid</p>
+                    </div>
+                    <ng-template #empty>
+                        <div class="property">
+                            <fa-icon [icon]="xmartIcon" style="color : red"></fa-icon>
+                            <p class="status">Not Yet</p>
+                        </div>
+                    </ng-template>
+                    <div class="property">{{payroll.isPayment ? payroll.payment_date : '---'}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="component-payroll">
+        <header class="header">Payroll Component</header>
+        <div class="content">
+            <div class="box" routerLink="/admin/payroll/bonuses">
+                <div class="box-left">
+                    <header class="header">Bonus</header>
+                    <div class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore ex at eveniet iste tempore magnam esse architecto vitae, animi ad iusto dolore soluta pariatur omnis.</div>
+                </div>
+                <div class="box-right">
+                    <fa-icon [icon]="rightArrow" size="lg"></fa-icon>
+                </div>
+            </div>
+            <div class="box" routerLink="/admin/payroll/deductions">
+                <div class="box-left">
+                    <header class="header">Deduction</header>
+                    <div class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore ex at eveniet iste tempore magnam esse architecto vitae, animi ad iusto dolore soluta pariatur omnis.</div>
+                </div>
+                <div class="box-right">
+                    <fa-icon [icon]="rightArrow" size="lg"></fa-icon>
+                </div>
+            </div>
+            <div class="box" routerLink="/admin/payroll/allowances">
+                <div class="box-left">
+                    <header class="header">Allowance</header>
+                    <div class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore ex at eveniet iste tempore magnam esse architecto vitae, animi ad iusto dolore soluta pariatur omnis.</div>
+                </div>
+                <div class="box-right">
+                    <fa-icon [icon]="rightArrow" size="lg"></fa-icon>
+                </div>
+            </div>
+            <div class="box" routerLink="/admin/payroll/payroll-types">
+                <div class="box-left">
+                    <header class="header">Payroll Type</header>
+                    <div class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore ex at eveniet iste tempore magnam esse architecto vitae, animi ad iusto dolore soluta pariatur omnis.</div>
+                </div>
+                <div class="box-right">
+                    <fa-icon [icon]="rightArrow" size="lg"></fa-icon>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

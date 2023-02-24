@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, QueryList, ViewChildren } from '@angular/core';
-import { faUserSecret, faMagnifyingGlass, faBell, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faMagnifyingGlass, faBell, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +7,7 @@ import { faUserSecret, faMagnifyingGlass, faBell, faEnvelope } from '@fortawesom
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  userIcon = faUserSecret;
+  userIcon = faUser;
   glassSearch = faMagnifyingGlass;
   messageIcon = faEnvelope;
   notificationIcon = faBell;

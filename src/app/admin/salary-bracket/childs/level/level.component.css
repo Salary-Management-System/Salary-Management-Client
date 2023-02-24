@@ -1,0 +1,35 @@
+.level-container {
+    padding: 10px 30px;
+}
+hr {
+    margin-top: 10px;
+}
+
+.header {
+    padding: 10px 0;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.header-menu {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    align-items: center;
+}
+
+.header-menu .menu {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+}
+
+.header-menu .menu >* {
+    transition-duration: 250ms;
+}
+
+.header-menu .menu >*:not(input):hover {
+    background-color: var(--navy-blue);
+    color: var(--pink);
+}

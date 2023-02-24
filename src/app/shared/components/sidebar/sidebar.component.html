@@ -1,18 +1,52 @@
 <nav id="sidebar" #sidebar>
-    <header><h1>
-        SPACE
-    </h1></header>
+    <header>
+        <h1 *ngIf="!isExpand; else logo">SPACE</h1>
+        <ng-template #logo>
+            <img class="logo-img" src="../../../../assets/logo.png" alt="">
+        </ng-template>
+    </header>
     <ul class="menu">
         <li 
             class="row-menu"
             *ngFor="let feature of listFeatures"
             [class.active]="feature.isActive"
-            (click)="onChangeCategory(feature.featureName)"
             >
-            <div class="icon-item"><fa-icon [icon]="feature.icon"></fa-icon></div>
-            <div class="feature">
-                {{feature.featureName}}
+            <div 
+                class="icon-item"
+                routerLink="{{feature.path}}"
+                (click)="onChangeCategory(feature.featureName)"
+            >
+                <fa-icon [icon]="feature.icon"></fa-icon>
             </div>
+            <div class="feature">
+                <a
+                    routerLink="{{feature.path}}"
+                    (click)="onChangeCategory(feature.featureName)"    
+                >{{feature.featureName}}</a>
+            </div>
+            <button 
+                class="expand-btn" 
+                *ngIf="feature.featureChild"
+                (click)="feature.isExpand = !feature.isExpand"
+                [@rotate]="feature.isExpand ? 'in' : 'out'"
+            >
+                <fa-icon [icon]="arrowRight" size="xs"></fa-icon>
+            </button>
+            <ul
+                *ngIf="feature.isExpand"
+                [@showSubMenu]
+                class="sub-menu"
+            >
+                <li class="sub-row-menu" *ngFor="let child of feature.featureChild"
+                    routerLink="{{child.path}}"
+                    (click)="onChangeCategory(feature.featureName, child.featureName)"
+                    [class.active]="child.isActive"
+                >
+                    <div class="child-feature">
+                        <a>{{child.featureName}}</a>
+                    </div>
+                </li>
+            </ul>
         </li>
     </ul>
 </nav>

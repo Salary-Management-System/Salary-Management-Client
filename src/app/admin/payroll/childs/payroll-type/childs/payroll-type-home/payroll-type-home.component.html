@@ -1,0 +1,63 @@
+<div class="container-home">
+    <div class="data">
+        <div class="header-table">
+            <span>ID</span>
+            <span>Name</span>
+            <span>Effect From</span>
+            <span>Expired At</span>
+            <span></span>
+        </div>
+        <div class="data-table">
+            <div class="row-data" *ngFor="let type of payrollTypes">
+                <div class="property">{{type.payroll_type_id}}</div>
+                <div class="property">{{type.type_name}}</div>
+                <div class="property">{{type.effect_date ? (type.effect_date | date:'shortDate') : '---'}}</div>
+                <div class="property">{{type.expired_date ? (type.expired_date | date:'shortDate') : '---'}}</div>
+                <div class="property">
+                    <button class="btn-edit">
+                        <fa-icon [icon]="iconEdit"></fa-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-filter">
+        <form 
+            class="form-filter" 
+            #allowanceFormCreate="ngForm"
+        >
+            <header class="header-filter">Filter</header>
+            <label for="from-date">From</label>
+            <div class="input-group">
+                <input
+                    id="from-date"
+                    class="form-control"
+                    placeholder="dd/mm/yyyy"
+                    name="from_date"
+                    ngbDatepicker
+                    #from_date="ngbDatepicker"
+                    ngModel
+                />
+                <button class="btn btn-khoai"(click)="from_date.toggle()" type="button">
+                    <fa-icon [icon]="iconCalendar"></fa-icon>
+                </button>
+            </div>
+            <label for="to-date">To</label>
+            <div class="input-group">
+                <input
+                    id="to-date"
+                    class="form-control"
+                    placeholder="dd/mm/yyyy"
+                    name="to_date"
+                    ngbDatepicker
+                    #to_date="ngbDatepicker"
+                    ngModel
+                />
+                <button class="btn btn-khoai"(click)="to_date.toggle()" type="button">
+                    <fa-icon [icon]="iconCalendar"></fa-icon>
+                </button>
+            </div>
+            <button class="btn btn-submit">Run</button>
+        </form>
+    </div>
+</div>

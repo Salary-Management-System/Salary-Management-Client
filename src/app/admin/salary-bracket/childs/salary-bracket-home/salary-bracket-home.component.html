@@ -1,0 +1,75 @@
+<div class="container-home">
+    <div class="table-job_title">
+        <div class="header-menu">
+            <header class="header" routerLink="/admin/bracket">Job Title</header>
+            <div class="menu">
+                <input type="search" placeholder="Search...">
+                <button routerLink="/admin/bracket/new" class="btn">New</button>
+                <button class="btn options">Options</button>
+                <div class="option-menu">
+                    <div class="opt"></div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="content">
+            <div class="header-table">
+                <span>ID</span>
+                <span>Position</span>
+                <span>Level</span>
+                <span>Department</span>
+                <span [style.textAlign]="true">Range(VND)</span>
+                <span></span>
+            </div>
+            <div class="data-table">
+                <div class="row-data" *ngFor="let job_title of jobTitles">
+                    <div class="property">{{job_title.job_function_id}}</div>
+                    <div class="property">{{job_title.position.position_name}}</div>
+                    <div class="property">{{job_title.level.level_name}}</div>
+                    <div class="property">{{job_title.position.department.department_name}}</div>
+                    <div class="property" [style.textAlign]="true">{{job_title.minimum_salary.toLocaleString()}} - {{job_title.maximum_salary.toLocaleString()}}</div>
+                    <div class="property">
+                        <button class="btn-edit">
+                            <fa-icon [icon]="iconEdit"></fa-icon>
+                        </button>
+                        <button class="btn-del">
+                            <fa-icon [icon]="iconDel"></fa-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="component-salary_bracket">
+        <header class="header">Salary Bracket Component</header>
+        <div class="content">
+            <div class="box" routerLink="/admin/bracket/positions">
+                <div class="box-left">
+                    <header class="header">Position</header>
+                    <div class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore ex at eveniet iste tempore magnam esse architecto vitae, animi ad iusto dolore soluta pariatur omnis.</div>
+                </div>
+                <div class="box-right">
+                    <fa-icon [icon]="rightArrow" size="lg"></fa-icon>
+                </div>
+            </div>
+            <div class="box" routerLink="/admin/bracket/departments">
+                <div class="box-left">
+                    <header class="header">Department</header>
+                    <div class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore ex at eveniet iste tempore magnam esse architecto vitae, animi ad iusto dolore soluta pariatur omnis.</div>
+                </div>
+                <div class="box-right">
+                    <fa-icon [icon]="rightArrow" size="lg"></fa-icon>
+                </div>
+            </div>
+            <div class="box" routerLink="/admin/bracket/levels">
+                <div class="box-left">
+                    <header class="header">Level</header>
+                    <div class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore ex at eveniet iste tempore magnam esse architecto vitae, animi ad iusto dolore soluta pariatur omnis.</div>
+                </div>
+                <div class="box-right">
+                    <fa-icon [icon]="rightArrow" size="lg"></fa-icon>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

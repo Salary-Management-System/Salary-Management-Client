@@ -1,0 +1,29 @@
+<div class="container-home">
+    <div class="data">
+        <div class="header-table">
+            <span>ID</span>
+            <span>Fullname</span>
+            <span>Current Salary</span>
+            <span>Position</span>
+            <span>Hired Date</span>
+            <span></span>
+        </div>
+        <div class="data-table">
+            <div class="row-data" *ngFor="let em of listEmployees">
+                <div class="property">{{em.employee_id}}</div>
+                <div class="property">{{em.firstname + ' ' + em.lastname}}</div>
+                <div class="property">{{em.current_salary ? em.current_salary.toLocaleString() : '---'}}</div>
+                <div class="property">{{em.job_id ? em.job_function.level.level_name + ' ' + em.job_function.position.position_name : '---'}}</div>
+                <div class="property">{{em.hire_date | date : 'shortDate'}}</div>
+                <div class="property">
+                    <button class="btn-edit">
+                        <fa-icon [icon]="iconEdit"></fa-icon>
+                    </button>
+                    <button class="btn-del">
+                        <fa-icon [icon]="iconDel"></fa-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
